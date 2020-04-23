@@ -6,6 +6,10 @@ class TeamsController < ApplicationController
   end
 
   def raw_data
-    @teams = Team.all
+    @teams = []
+    date_file = TeamsService.new('public/football.dat')
+    date_file.parse do |row|
+      @teams << row
+    end
   end
 end

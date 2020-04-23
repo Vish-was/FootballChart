@@ -20,14 +20,14 @@
   <tbody>
     <% @teams.each do |team| %>
       <tr>
-        <td><%= team.team_name %></td>
-        <td><%= team.played %></td>
-        <td><%= team.win %></td>
-        <td><%= team.loose %></td>
-        <td><%= team.draw %></td>
-        <td><%= team.goal_hit %></td>
-        <td><%= team.goal_against %></td>
-        <td><%= team.points %></td>
+        <td><%= team['team'] %></td>
+        <td><%= team['p'] %></td>
+        <td><%= team['w'] %></td>
+        <td><%= team['l'] %></td>
+        <td><%= team['d'] %></td>
+        <td><%= team['f'] %></td>
+        <td><%= team['a'] %></td>
+        <td><%= team['pts'] %></td>
       </tr>
     <% end %>
   </tbody>
