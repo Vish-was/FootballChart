@@ -1,36 +1,24 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<h1>Teams</h1>
+<h1 class="text-center mb-4">Teams</h1>
+<div class="text-center mb-3">
+  <h4 class="badge badge-info"><span class="h5">Team : Highlight</span></h4>
+</div>
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
-      <th>Team name</th>
-      <th>Played</th>
-      <th>Win</th>
-      <th>Loose</th>
-      <th>Draw</th>
-      <th>Goal hit</th>
-      <th>Goal against</th>
-      <th>Points</th>
-      <th colspan="3"></th>
+      <th>Team Details</th>
     </tr>
   </thead>
 
   <tbody>
     <% @teams.each do |team| %>
-      <tr>
-        <td><%= team['team'] %></td>
-        <td><%= team['p'] %></td>
-        <td><%= team['w'] %></td>
-        <td><%= team['l'] %></td>
-        <td><%= team['d'] %></td>
-        <td><%= team['f'] %></td>
-        <td><%= team['a'] %></td>
-        <td><%= team['pts'] %></td>
+      <tr class="<%= (team == @min_diff) ? 'bg-info' : '' %>"  >
+        <td><%= team %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+</div>
