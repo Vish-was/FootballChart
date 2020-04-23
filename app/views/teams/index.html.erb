@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Teams</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Team name</th>
+      <th>Played</th>
+      <th>Win</th>
+      <th>Loose</th>
+      <th>Draw</th>
+      <th>Goal hit</th>
+      <th>Goal against</th>
+      <th>Points</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @teams.each do |team| %>
+      <tr>
+        <td><%= team.team_name %></td>
+        <td><%= team.played %></td>
+        <td><%= team.win %></td>
+        <td><%= team.loose %></td>
+        <td><%= team.draw %></td>
+        <td><%= team.goal_hit %></td>
+        <td><%= team.goal_against %></td>
+        <td><%= team.points %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
