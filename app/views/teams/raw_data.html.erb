@@ -12,12 +12,8 @@
     </tr>
   </thead>
 
-  <tbody>
-    <% @teams.each do |team| %>
-      <tr class="<%= (team == @min_diff) ? 'bg-info' : '' %>"  >
-        <td><%= team %></td>
-      </tr>
-    <% end %>
+  <tbody> 
+    <%= @teams %>
   </tbody>
 </table>
 

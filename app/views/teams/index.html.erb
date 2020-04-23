@@ -20,7 +20,7 @@
 
   <tbody>
     <% @teams.each do |team| %>
-      <tr class="<%= (team.id == @min_diff.id) ? 'bg-info' : '' %>">
+      <tr class="<%= (team.id == @min_diff_team.id) ? 'bg-info' : '' %>">
         <td><%= team.team_name %></td>
         <td><%= team.played %></td>
         <td><%= team.win %></td>

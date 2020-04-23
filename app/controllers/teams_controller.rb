@@ -1,31 +1,27 @@
 class TeamsController < ApplicationController
-  # GET /teams
-  # GET /teams.json
+
   def index
     @teams = Team.all
-    @min_diff = get_min_difference
+    @min_diff_team = get_min_diff("goal_hit", "goal_against")
   end
 
   def raw_data
-    @teams = []
+    # @teams = []
     # date_file = TeamsService.new('public/football.dat')
     # date_file.parse do |row|
     #   @teams << row
     # end
-    teams = Team.all
-    teams.each do |team|
-      @teams << team.as_json
-    end
-    @min_diff = get_min_difference
+    # @min_diff_team = get_min_diff("f", "a")
+    @teams = File.open("public/football.dat").read
   end
 
   private
 
-  def get_min_difference
-    @teams.sort_by{|team| get_difference(team["goal_hit"], team["goal_against"]).abs}.first
+  def get_min_diff(goal_hit, goal_against)
+    @teams.sort_by{|team| get_diff(team[goal_hit].to_i, team[goal_against].to_i).abs}.first
   end
 
-  def get_difference(goal_hit, goal_against)
+  def get_diff(goal_hit, goal_against)
     (goal_hit - goal_against).abs
   end
 end
